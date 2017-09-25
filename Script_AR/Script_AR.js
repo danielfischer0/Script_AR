@@ -1,4 +1,4 @@
-
+в
 var currentPage = location.href;
 var regexpLoc1 = /\/user\//;
 var regexpLoc2 = /\/profile\//;
