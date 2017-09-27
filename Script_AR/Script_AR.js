@@ -112,5 +112,11 @@ if (currentPage.search(/\/toon\//)!=-1) {
     for (var i = 1; i <= soundNum; i++) {
       $('#soundNum').prepend('<option>'+i+'</option>')
     }
+    var select = $('#soundNum');
+    select.change(function(){
+      var currentSound = select.val();
+      var playerNew = player.substring(0,pos)+currentSound+player.substring(pos+1);
+      $('embed').attr('src',playerNew);
+    })
   }
 }
