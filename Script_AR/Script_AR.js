@@ -66,7 +66,7 @@ for (var i = 0; i < toons3.length; i++) {
 }
 var toons4 = ['.toon_preview_8nqcnbom1jk9'];
  for (var i = 0; i < toons4.length; i++) {
-   toons4[i].addClass('prize_5');//Бежевая рамка - тянучка
+   $(toons4[i]).addClass('prize_5');//Бежевая рамка - тянучка
  }
  // --Добавление прайза на странице мульта--
  var currentPage = location.href;
@@ -106,6 +106,6 @@ if (currentPage.search(/\/toon\//)!=-1) {
   if (player.indexOf('sound:')!= -1) {
     var pos = player.indexOf('sound:')+18;
     var soundNum = player.charAt(pos);
-    console.log(soundNum);    
+    console.log(soundNum);
   }
 }
