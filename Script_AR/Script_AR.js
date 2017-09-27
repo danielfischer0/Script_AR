@@ -106,6 +106,11 @@ if (currentPage.search(/\/toon\//)!=-1) {
   if (player.indexOf('sound:')!= -1) {
     var pos = player.indexOf('sound:')+18;
     var soundNum = player.charAt(pos);
-    console.log(soundNum);
+    $('#toon_title').append(`
+      <form name="form0">
+      <select id="soundNum"></select></form>`);
+    for (var i = 0; i < pos; i++) {
+      $('#soundNum').prepend('<option>'+i+'</option>')
+    }
   }
 }
