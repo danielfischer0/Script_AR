@@ -54,11 +54,11 @@ var a = $('span.header');
 var toons1 = ['.toon_preview_foinmakzj2w7'];
 //Группировка всех рамок в массив
 for (var i = 0; i < toons1.length; i++) {
-  toons1[i].addClass('prize_2');//Присваивание массиву класса - зелёная рамка (участник конкурса)
+  $(toons1[i]).addClass('prize_2');//Присваивание массиву класса - зелёная рамка (участник конкурса)
 }
  var toons2 = ['.toon_preview_l19maksmce9n'];
 for (var i = 0; i < toons2.length; i++) {
-  toons2[i].addClass('prize_3');// Жёлтая рамка - победитель в конкурсе.
+  $(toons2[i]).addClass('prize_3');// Жёлтая рамка - победитель в конкурсе.
 }
 var toons3 = ['.toon_preview_vgabombowejn','.toon_preview_eyxaqdtim9zv','.toon_preview_a2vlrom96e39','.toon_preview_0fxlekviiwt0'];
 for (var i = 0; i < toons3.length; i++) {
