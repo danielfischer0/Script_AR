@@ -109,7 +109,7 @@ if (currentPage.search(/\/toon\//)!=-1) {
     $('#toon_title').append(`
       <form name="form0">
       <select id="soundNum"></select></form>`);
-    for (var i = 0; i < soundNum; i++) {
+    for (var i = 1; i <= soundNum; i++) {
       $('#soundNum').prepend('<option>'+i+'</option>')
     }
   }
