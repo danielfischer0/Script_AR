@@ -108,7 +108,7 @@ if (currentPage.search(/\/toon\//)!=-1) {
     var soundNum = player.charAt(pos);
     $('#toon_title').append(`
       <form name="form0">
-      <select id="soundNum"></select></form>`);
+      <select id="soundNum" class="red"></select></form>`);
     for (var i = soundNum; i >= 1; i--) {
       $('#soundNum').prepend('<option>'+i+'</option>')
     }
