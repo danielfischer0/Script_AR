@@ -148,7 +148,7 @@ if(opt1 == "true"){
 		while(f < i){
 			author = $('div.toon_tagline a[href="/user/' + sub[f] + '"].username').parent().parent();
 			//author.removeAttr('class');
-			author.attr('style', 'border:solid;border-color:#33ff00;border-width:1px;');
+			author.attr('style', 'border:solid;border-color:#33aa00;border-width:1px;');
 			f += 1;
 		}
 	}
