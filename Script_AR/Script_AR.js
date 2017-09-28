@@ -106,7 +106,7 @@ if (currentPage.search(/\/toon\//)!=-1) {
   if (player.indexOf('sound:')!= -1) {
     var pos = player.indexOf('sound:')+18;
     var soundNum = player.charAt(pos);
-    $('#toon_title').append(`
+    $('#toon_title').after(`
       <form name="form0">
       <span style="size:12px">К мульту прикреплено</span>
       <select id="soundNum" class="red"></select> <span style="size:12px">озвучек.</span></form>`);
