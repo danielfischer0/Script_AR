@@ -106,18 +106,20 @@ if (currentPage.search(/\/toon\//)!=-1) {
   if (player.indexOf('sound:')!= -1) {
     var pos = player.indexOf('sound:')+18;
     var soundNum = player.charAt(pos);
-    $('#toon_title').parent().after(`
-      <form name="form0">
-      <span style="color:#999999">К мульту прикреплено</span>
-      <select id="soundNum" class="red"></select> <span style="color:#999999">озвучек.</span></form>`);
-    for (var i = soundNum; i >= 1; i--) {
-      $('#soundNum').prepend('<option>'+i+'</option>')
+    if (soundNum>1) {
+      $('#toon_title').parent().after(`
+        <form name="form0">
+        <span style="color:#999999">К мульту прикреплено</span>
+        <select id="soundNum" class="red"></select> <span style="color:#999999">озвучек.</span></form>`);
+      for (var i = soundNum; i >= 1; i--) {
+        $('#soundNum').prepend('<option>'+i+'</option>')
+      }
+      var select = $('#soundNum');
+      select.change(function(){
+        var currentSound = select.val();
+        var playerNew = player.substring(0,pos)+currentSound+player.substring(pos+1);
+        $('embed').attr('src',playerNew);
+      });
     }
-    var select = $('#soundNum');
-    select.change(function(){
-      var currentSound = select.val();
-      var playerNew = player.substring(0,pos)+currentSound+player.substring(pos+1);
-      $('embed').attr('src',playerNew);
-    })
   }
 }
