@@ -108,8 +108,8 @@ if (currentPage.search(/\/toon\//)!=-1) {
     var soundNum = player.charAt(pos);
     $('#toon_title').parent().after(`
       <form name="form0">
-      <span style="color:#bbbbbb">К мульту прикреплено</span>
-      <select id="soundNum" class="red"></select> <span style="color:#bbbbbb">озвучек.</span></form>`);
+      <span style="color:#999999">К мульту прикреплено</span>
+      <select id="soundNum" class="red"></select> <span style="color:#999999">озвучек.</span></form>`);
     for (var i = soundNum; i >= 1; i--) {
       $('#soundNum').prepend('<option>'+i+'</option>')
     }
