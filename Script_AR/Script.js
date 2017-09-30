@@ -3,6 +3,7 @@ var exid = 'ongmnaifagjalojpehdjnggnpppnfgkg';
 //$('body').attr('onload', 'nicknameEdit();');
 //Загрузка скриптов
 $('head').append('<script type="text/javascript" async="" src="https://script-ar.000webhostapp.com/api.js?a='+randomString()+'"></script>');
+//$.get('http://multochat.ucoz.net/Script_AR/api.js');
 $('body').attr('onload', 'startInit();');
 var user = $("h3[id=user_username]").text();
 var sub = localStorage.getItem("Subs");
