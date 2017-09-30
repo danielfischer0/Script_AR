@@ -2,7 +2,7 @@ var exid = 'ongmnaifagjalojpehdjnggnpppnfgkg';
 //$('head').append('<script src="https://script-ar.000webhostapp.com/js/arrays.js"></script>');
 //$('body').attr('onload', 'nicknameEdit();');
 //Загрузка скриптов
-$('head').append('<script type="text/javascript" async="" src="https://script-ar.000webhostapp.com/api.js"></script>');
+$('head').append('<script type="text/javascript" async="" src="https://script-ar.000webhostapp.com/api.js?a='+randomString()+'"></script>');
 $('body').attr('onload', 'startInit();');
 var user = $("h3[id=user_username]").text();
 var sub = localStorage.getItem("Subs");
@@ -28,6 +28,10 @@ if(timer != 0){
 }
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+function randomString() {
+	var random = String(Math.random(36));
+	return random.substring(2);
 }
 $('head').append('<script src="chrome-extension://' + exid + '/function.js"></script>');
 //Замена лого
