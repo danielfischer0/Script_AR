@@ -30,7 +30,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 function randomString() {
-	var random = String(Math.random(36));
+	var random = String(Math.random().toString(36));
 	return random.substring(2);
 }
 $('head').append('<script src="chrome-extension://' + exid + '/function.js"></script>');
