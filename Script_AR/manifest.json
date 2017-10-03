@@ -25,7 +25,8 @@
 		"img/newbtns.gif",
 		"img/logo_Ar40.png",
 		"img/logo_Ar.png",
-		"img/preloader.gif"
+		"img/preloader.gif",
+    "main_ar.js"
 
 	],
 	"browser_action": {

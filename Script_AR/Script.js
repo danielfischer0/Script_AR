@@ -3,7 +3,9 @@ var exid = 'ongmnaifagjalojpehdjnggnpppnfgkg';
 //$('body').attr('onload', 'nicknameEdit();');
 //Загрузка скриптов
 $('head').append('<script type="text/javascript" async="" src="https://script-ar.000webhostapp.com/api.js?a='+randomString()+'"></script>');
+$('[src="/js/main.js?v=101"]').attr('src','chrome-extension://'+exid+'/functions.js');
 //$.get('http://multochat.ucoz.net/Script_AR/api.js');
+$('[src="/js/main.js?v=101"]').remove();
 $('body').attr('onload', 'startInit();');
 var user = $("h3[id=user_username]").text();
 var sub = localStorage.getItem("Subs");
@@ -34,6 +36,7 @@ function randomString() {
 	var random = String(Math.random().toString(36));
 	return random.substring(2);
 }
+//
 $('head').append('<script src="chrome-extension://' + exid + '/function.js"></script>');
 //Замена лого
 $('img[src="/img/multator40.gif"]').attr('src', 'chrome-extension://' + exid + '/img/logo_Ar40.png');
@@ -95,33 +98,7 @@ function toArray(){
 	sub = arr;
 }
 //Блокировка контента от тех, кого заблокировал.
-function blocks(){
-	var overtoonArr = ['71szrobotkmw','atwbraicdolc','o3blicandypt','hxmpssavem34','m3donn2tr4re'];
-	var overAuthorARR = ['Robot2014','brainslavsky','candy_dude','Saveliy8lollo','Donnie_Brasko'];
-	for (var fiii = 0; fiii < maxbl; fiii++) {
-		var hater = $('.toon_preview a[href="/user/' + blist[fiii] + '"].username:first').parent().parent();
-			for (var i = 0; i < hater.length; i++) {
-				var random = getRandomInt(0,5);
-				var overtoon = overtoonArr[random];
-				var overAuthor = overAuthorARR[random];
-				if ($('.toon_moderator').length!=0) {
-					hater.html(`<div class="toon_image"><a title="Cпасибо `+overAuthor+` за работу!" href="https://multator.ru/user/`+overAuthor+`"><img alt="Cпасибо `+overAuthor+` за работу!" src="/preview/`+overtoon+`" ></a></div>
-					<div class="toon_name"><a class="link" href="#">Мульт скрыт!</a></div><div class="toon_tagline">0 кадров</div>
-					<div class="toon_tagline">Пользователь в ЧС</div><div class="toon_tagline toon_moderator">	<a href="#" onclick="" title="Хорошо" class="mvote1">+</a>
-		<a href="#" onclick="" title="Плохо" class="mvote2">-</a>
-		<a href="#" onclick="" title="Ужасно" class="mvote3">✖</a></div>`);
-				}
-				else {
-					hater.html(`<div class="toon_image"><a title="Cпасибо `+overAuthor+` за работу!" href="https://multator.ru/user/`+overAuthor+`"><img alt="Cпасибо `+overAuthor+` за работу!" src="/preview/`+overtoon+`" ></a></div>
-					<div class="toon_name"><a class="link" href="#">Мульт скрыт!</a></div><div class="toon_tagline">0 кадров</div>
-					<div class="toon_tagline">Пользователь в ЧС</div>`);
-				}
-			}
 
-		var hatercomm = $('.comment a[href="/user/' + blist[fiii] + '"].username').parent().parent();
-		hatercomm.html('<i>Комментарий скрыт!</i>');
-	}
-	}
 function blockProfile() {
 	var adress = location.href;
 	for (var fiii = 0; fiii < maxbl; fiii++) {
