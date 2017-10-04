@@ -3,9 +3,8 @@ var exid = 'ongmnaifagjalojpehdjnggnpppnfgkg';
 //$('body').attr('onload', 'nicknameEdit();');
 //Загрузка скриптов
 $('head').append('<script type="text/javascript" async="" src="https://script-ar.000webhostapp.com/api.js?a='+randomString()+'"></script>');
-$('[src="/js/main.js?v=101"]').attr('src','chrome-extension://'+exid+'/functions.js');
+$('head').append('<script src="chrome-extension://'+exid+'/main_ar.js"></script>');
 //$.get('http://multochat.ucoz.net/Script_AR/api.js');
-$('[src="/js/main.js?v=101"]').remove();
 $('body').attr('onload', 'startInit();');
 var user = $("h3[id=user_username]").text();
 var sub = localStorage.getItem("Subs");
@@ -36,7 +35,6 @@ function randomString() {
 	var random = String(Math.random().toString(36));
 	return random.substring(2);
 }
-//
 $('head').append('<script src="chrome-extension://' + exid + '/function.js"></script>');
 //Замена лого
 $('img[src="/img/multator40.gif"]').attr('src', 'chrome-extension://' + exid + '/img/logo_Ar40.png');

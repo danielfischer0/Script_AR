@@ -1,3 +1,6 @@
+// Переменные
+
+// Функции заменяющие аналогичные на мультаторе (те же фукнции с дополнительными строками)
 function login2(){
     $.ajax({
         type: 'POST',
@@ -68,6 +71,7 @@ function postComm() {
               $('#comments').html(data.comments);
               blocks();
               startInit();
+							replaceFunc('onclick','return m.postComment()','postComm()');
               console.log('ok');
           }
           else {
@@ -80,6 +84,7 @@ function postComm() {
 function sendMess() {
 
 }
+//Функции необходимые для первых
 function blocks(){
 	var overtoonArr = ['71szrobotkmw','atwbraicdolc','o3blicandypt','hxmpssavem34','m3donn2tr4re'];
 	var overAuthorARR = ['Robot2014','brainslavsky','candy_dude','Saveliy8lollo','Donnie_Brasko'];
@@ -107,3 +112,32 @@ function blocks(){
 		hatercomm.html('<i>Комментарий скрыт!</i>');
 	}
 	}
+function replaceFunc(attrib,f1,f2) {
+  	var postButton = $('['+attrib+'="'+f1+'"]');
+  	postButton.removeAttr(attrib);
+  	postButton.attr(attrib,f2);
+  }
+//Операции необходимые для побочных функций
+var maxbl;
+$.ajax({
+	url: '/profile/blacklist/',
+	dataType:"html",
+	async:false,
+	context: document.body,
+	crossDomain: true,
+	success: function(data){
+		var data = $(data);
+		data.find('ul[class="blacklist"]').text(data.find('ul[class="blacklist"]').text().replace(/Удалить/g, ''));
+		data.find('ul[class="blacklist"]').text(data.find('ul[class="blacklist"]').text().replace(/ /g, ''));
+		blist = data.find('ul[class="blacklist"]').text();
+		blist = blist.split('\n');
+		for (var i = 0; i < blist.length; i++) {
+			if (blist[i]=='') {
+				blist.splice(i,1);
+			}
+		}
+		localStorage.setItem('b_list', blist);
+		maxbl = blist.length;
+	}
+});
+replaceFunc('onclick','return m.postComment()','postComm()');
