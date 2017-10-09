@@ -123,4 +123,4 @@ if (currentPage.search(/\/toon\//)!=-1) {
     }
   }
 }
-//
+$('[onclick="return m.blackListAdd('lexsey')"]').removeAttr('onclick');
