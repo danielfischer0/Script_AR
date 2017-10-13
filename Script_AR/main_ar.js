@@ -82,7 +82,29 @@ function postComm() {
   return false;
 }
 function sendMess() {
-
+  $.ajax({
+      type: 'POST',
+      url: location.href,
+      data: ({
+          message: $('#message_text').val()
+          }),
+      success: function(data) {
+          if (data.result == 'ok') {
+              $('#messages').html(data.messages);
+              replaceFunc('onclick','return m.postMessage()','sendMess()');
+              startInit();
+              console.log('ok');
+          }
+          else {
+              alert(data.error);
+          }
+      }
+  });
+  $('#message_text').val('');
+  return false;
+}
+function paginate() {
+  
 }
 //Функции необходимые для первых
 function blocks(){
@@ -116,7 +138,7 @@ function replaceFunc(attrib,f1,f2) {
   	var postButton = $('['+attrib+'="'+f1+'"]');
   	postButton.removeAttr(attrib);
   	postButton.attr(attrib,f2);
-  }
+}
 //Операции необходимые для побочных функций
 var maxbl;
 $.ajax({
@@ -141,3 +163,4 @@ $.ajax({
 	}
 });
 replaceFunc('onclick','return m.postComment()','postComm()');
+replaceFunc('onclick','return m.postMessage()','sendMess()');
