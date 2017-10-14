@@ -1,4 +1,4 @@
-var exid = 'ongmnaifagjalojpehdjnggnpppnfgkg';
+var exid = chrome.extension.getURL("");
 //$('head').append('<script src="https://script-ar.000webhostapp.com/js/arrays.js"></script>');
 //$('body').attr('onload', 'nicknameEdit();');
 //Загрузка скриптов
