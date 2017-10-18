@@ -50,77 +50,83 @@ window.setInterval(nicknameEdit,1);*/
 //window.setInterval(nicknameEdit,1);
 var a = $('span.header');
 //alert(a.html());
-//  --Рамки мультов--
-var toons1 = ['.toon_preview_foinmakzj2w7'];
-//Группировка всех рамок в массив
-for (var i = 0; i < toons1.length; i++) {
-  $(toons1[i]).addClass('prize_2');//Присваивание массиву класса - зелёная рамка (участник конкурса)
-}
- var toons2 = ['.toon_preview_l19maksmce9n'];
-for (var i = 0; i < toons2.length; i++) {
-  $(toons2[i]).addClass('prize_3');// Жёлтая рамка - победитель в конкурсе.
-}
-var toons3 = ['.toon_preview_vgabombowejn','.toon_preview_eyxaqdtim9zv','.toon_preview_a2vlrom96e39','.toon_preview_0fxlekviiwt0'];
-for (var i = 0; i < toons3.length; i++) {
-  $(toons3[i]).addClass('prize_6');// Золотая рамка - битва за корону.
-}
-var toons4 = ['.toon_preview_8nqcnbom1jk9'];
- for (var i = 0; i < toons4.length; i++) {
-   $(toons4[i]).addClass('prize_5');//Бежевая рамка - тянучка
- }
- // --Добавление прайза на странице мульта--
- var currentPage = location.href;
- var regexp1 = /\/toon/;
- if (currentPage.search(regexp1)!=-1) {
-  var regexps1 = [/foinmakzj2w7/];
-  for (var i = 0; i < regexps1.length; i++) {
-    if (currentPage.search(regexps1[i])!=-1) {
-      var prizes = $('div.prizes');
-      prizes.html('<div class="prize toon_prize_2">Участинк конкурса</div>')
+ if (currentPage.indexOf('draw')==-1) {
+   //  --Рамки мультов--
+   var toons1 = ['.toon_preview_foinmakzj2w7'];
+   //Группировка всех рамок в массив
+   for (var i = 0; i < toons1.length; i++) {
+     $(toons1[i]).addClass('prize_2');//Присваивание массиву класса - зелёная рамка (участник конкурса)
+   }
+    var toons2 = ['.toon_preview_l19maksmce9n'];
+   for (var i = 0; i < toons2.length; i++) {
+     $(toons2[i]).addClass('prize_3');// Жёлтая рамка - победитель в конкурсе.
+   }
+   var toons3 = ['.toon_preview_vgabombowejn','.toon_preview_eyxaqdtim9zv','.toon_preview_a2vlrom96e39','.toon_preview_0fxlekviiwt0'];
+   for (var i = 0; i < toons3.length; i++) {
+     $(toons3[i]).addClass('prize_6');// Золотая рамка - битва за корону.
+   }
+   var toons4 = ['.toon_preview_8nqcnbom1jk9'];
+    for (var i = 0; i < toons4.length; i++) {
+      $(toons4[i]).addClass('prize_5');//Бежевая рамка - тянучка
     }
-  }
-  var regexps2 = [/l19maksmce9n/];
-  for (var i = 0; i < regexps2.length; i++) {
-    if (currentPage.search(regexps2[i])!=-1) {
-      var prizes = $('div.prizes');
-      prizes.html('<div class="prize toon_prize_3">Центр первого Опрелько</div>')
-    }
-  }
-  var regexps3 = [/vgabombowejn/,/eyxaqdtim9zv/,/a2vlrom96e39/,/0fxlekviiwt0/];
-  for (var i = 0; i < regexps3.length; i++) {
-    if (currentPage.search(regexps3[i])!=-1) {
-      var prizes = $('div.prizes');
-      prizes.html('<div class="prize toon_prize_6"><b>Битва за корону<b></div>')
-    }
-  }
-}
-//Решение проблемы комментариев
-var user = $('#user_username > a').html();
-var comments = $('a[href="/user/'+user+'/comments/"]');
-comments.attr('href','/user/'+user+'/owncomments/');
-var comments = $('h1[style="font-weight:normal"');
-comments.remove();
-//Выбор озвучки к прослушиванию
-if (currentPage.search(/\/toon\//)!=-1) {
-  var player = $('embed').attr('src');
-  if (player.indexOf('sound:')!= -1) {
-    var pos = player.indexOf('sound:')+18;
-    var soundNum = player.charAt(pos);
-    if (soundNum>1) {
-      $('#toon_title').parent().after(`
-        <form name="form0">
-        <span style="color:#999999">Сейчас проигрывается </span>
-        <select id="soundNum" class="red"></select> <span style="color:#999999"> озвучка.</span></form>`);
-      for (var i = soundNum; i >= 1; i--) {
-        $('#soundNum').prepend('<option>'+i+'</option>')
+   // --Добавление прайза на странице мульта--
+   var currentPage = location.href;
+   var regexp1 = /\/toon/;
+   if (currentPage.search(regexp1)!=-1) {
+    var regexps1 = [/foinmakzj2w7/];
+    for (var i = 0; i < regexps1.length; i++) {
+      if (currentPage.search(regexps1[i])!=-1) {
+        var prizes = $('div.prizes');
+        prizes.html('<div class="prize toon_prize_2">Участинк конкурса</div>')
       }
-      var select = $('#soundNum');
-      select.change(function(){
-        var currentSound = select.val();
-        var playerNew = player.substring(0,pos)+currentSound+player.substring(pos+1);
-        $('embed').attr('src',playerNew);
-      });
+    }
+    var regexps2 = [/l19maksmce9n/];
+    for (var i = 0; i < regexps2.length; i++) {
+      if (currentPage.search(regexps2[i])!=-1) {
+        var prizes = $('div.prizes');
+        prizes.html('<div class="prize toon_prize_3">Центр первого Опрелько</div>')
+      }
+    }
+    var regexps3 = [/vgabombowejn/,/eyxaqdtim9zv/,/a2vlrom96e39/,/0fxlekviiwt0/];
+    for (var i = 0; i < regexps3.length; i++) {
+      if (currentPage.search(regexps3[i])!=-1) {
+        var prizes = $('div.prizes');
+        prizes.html('<div class="prize toon_prize_6"><b>Битва за корону<b></div>')
+      }
     }
   }
-}
+
+  //Решение проблемы комментариев
+  var user = $('#user_username > a').html();
+  var comments = $('a[href="/user/'+user+'/comments/"]');
+  comments.attr('href','/user/'+user+'/owncomments/');
+  var comments = $('h1[style="font-weight:normal"');
+  comments.remove();
+
+  //Выбор озвучки к прослушиванию
+  if (currentPage.search(/\/toon\//)!=-1) {
+    var player = $('embed').attr('src');
+    if (player.indexOf('sound:')!= -1) {
+      var pos = player.indexOf('sound:')+18;
+      var soundNum = player.charAt(pos);
+      if (soundNum>1) {
+        $('#toon_title').parent().after(`
+          <form name="form0">
+          <span style="color:#999999">Сейчас проигрывается </span>
+          <select id="soundNum" class="red"></select> <span style="color:#999999"> озвучка.</span></form>`);
+        for (var i = soundNum; i >= 1; i--) {
+          $('#soundNum').prepend('<option>'+i+'</option>')
+        }
+        var select = $('#soundNum');
+        select.change(function(){
+          var currentSound = select.val();
+          var playerNew = player.substring(0,pos)+currentSound+player.substring(pos+1);
+          $('embed').attr('src',playerNew);
+        });
+      }
+    }
+  }
+ }
+
+
 //$('[onclick="return m.blackListAdd(\'lexsey\')"]').remove();
