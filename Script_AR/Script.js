@@ -109,7 +109,7 @@ function blockProfile() {
 	}
 }
 blockProfile();
-window.setInterval(blocks,100);
+//window.setInterval(blocks,100);
 //$('ul.paginator').click(document.addEventListener("DOMContentLoaded",blocks()));
 //Страница подписок
 function loadPage(page){
