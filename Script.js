@@ -43,7 +43,7 @@ $('img[src="/img/multator.png"]').attr('src', exid + 'img/logo_Ar.png');
 
 //Кнопка раздела "Подписки"
 $('ul[class="topmenu"]').append('<li><a href="/my" class="m_sub"></a></li>');
-$('head').append('<style> a.m_sub { background: url(' + exid + '/img/newbtns.gif); display: block; width: 120px; height: 15px; background-position: 0 -1px;} a.m_sub:hover { background-position: 0 -23px;}  a.m_sub_selected { background: url(chrome-extension://' + exid + '/img/newbtns.gif); display: block; width: 99px; height: 25px; background-position: 0 -51px; } a.m_sub_selected:hover { background-position: 0 -91.2px;} </style>');
+$('head').append('<style> a.m_sub { background: url(' + exid + '/img/newbtns.gif); display: block; width: 120px; height: 15px; background-position: 0 -1px;} a.m_sub:hover { background-position: 0 -23px;}  a.m_sub_selected { background: url(' + exid + '/img/newbtns.gif); display: block; width: 99px; height: 25px; background-position: 0 -51px; } a.m_sub_selected:hover { background-position: 0 -91.2px;} </style>');
 
 if(!sub){
 	sub = new Array(10);
@@ -207,7 +207,7 @@ if(location.href == 'https://multator.ru/my' || location.href == 'https://multat
 	var header = $('#header_wrap').html();
 	var footer = $('#footer').html();
 	$('body').empty();
-	$('body').append('<div id="header_wrap">' + header + '</div><div id="content"><center><h1>Мои подписки</h1><div id="loader"><img alt="Загрузка..." src="chrome-extension://' + exid + '/img/preloader.gif" /></div><div id="subscribes"></div> </div><div id="footer">' + footer + '</div></center>');
+	$('body').append('<div id="header_wrap">' + header + '</div><div id="content"><center><h1>Мои подписки</h1><div id="loader"><img alt="Загрузка..." src="' + exid + '/img/preloader.gif" /></div><div id="subscribes"></div> </div><div id="footer">' + footer + '</div></center>');
 
 	while(al == false){
 		if(f == i){
